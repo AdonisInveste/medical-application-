@@ -92,17 +92,53 @@ class IdentityForm(forms.ModelForm):
 
 
 
-class symptomForm(forms.ModelForm):
+class SymptomForm(forms.ModelForm):
 
-    class Meta:
+        identity = forms.CharField(
+                widget = forms.TextInput(
+                        attrs = {
 
-        model = Symptom
-        fields = '__all__'
+                                'placeholder': 'Name of Symptom',
+                                'class' : 'form-control'
+                        }
+                )
+        )
 
+        description= forms.CharField(
+            widget=forms.Textarea(
+                    attrs = {
 
-class diseaseForm(forms.ModelForm):
+                            'placeholder':'Explain Medical condition',
+                            'class':'form-control'
+                    }
+            )
+    )
+        class Meta:
 
+            model = Symptom
+            fields = ['identity', 'description']
+
+class DiseaseForm(forms.ModelForm):
+
+    identity = forms.CharField(
+            widget = forms.TextInput(
+                    attrs = {
+
+                            'placeholder': 'Name of Disease',
+                            'class' : 'form-control'
+                    }
+            )
+    )
+
+    description= forms.CharField(
+        widget=forms.Textarea(
+                attrs = {
+                        'placeholder':'Explain Medical condition',
+                        'class':'form-control'
+                }
+        )
+)
     class Meta:
 
         model = Disease
-        fields = '__all__'
+        fields = ['identity', 'description']

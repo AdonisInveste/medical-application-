@@ -76,7 +76,7 @@
                       </div>
 
                       <div class="row" style="margin-top:2rem">
-                        
+
                         <div class="col-sm-8">
                           <div class = "card" style = "font-family:Hiragino Mincho Pro;">
 
@@ -95,6 +95,12 @@
                         </div>
 
                       </div>
+
+                      {% for form in  form_data %}
+
+                          {{ form }}
+
+                      {% endfor %}
 
 
 </div>
