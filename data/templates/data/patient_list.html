@@ -1,0 +1,20 @@
+{% extends parent_template|default:"data/base_data.html"%}
+
+{% block title %}
+{{block.super}} - patient List
+{% endblock %}
+
+{% block content%}
+
+
+<div class="">
+  <a href="{% url 'data_patient_create' %}"> Create new patient </a>
+</div>
+<ul>
+  {% for patient in patient_list %}
+  <li>
+    <a href="{{patient.get_absolute_url}}">{{patient.patient_identity}}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

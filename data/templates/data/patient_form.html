@@ -1,0 +1,92 @@
+{% extends parent_template|default:"data/base_data.html"%}
+
+{% block title %}
+{{block.super}} - Create patient
+{% endblock %}
+
+
+{% block content %}
+
+    <form class="" action="{% url 'data_patient_create' %}" method="post">
+
+
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+                                    <div class="alert alert-danger" role="alert">
+                                      {% for error in form.non_field_errors %}
+                                        {{ error }}
+                                      {% endfor %}
+                                    </div>
+                        {% endif %}
+
+                        <div class = "form-row">
+
+                                            <div class = "form-group col-md-6">
+
+                                              {{form.NIS.errors}}
+                                              {{form.NIS}}
+
+                                            </div>
+
+                                            <div class = "form-group col-md-6">
+
+                                              {{form.contact.errors}}
+                                              {{form.contact}}
+
+                                            </div>
+
+                                          </div>
+
+
+                                          <div class = "form-row">
+
+                                                      <div class = "form-group col-md-6">
+
+                                                        {{form.first_name.errors}}
+                                                        {{form.first_name}}
+
+                                                      </div>
+
+                                                      <div class = "form-group col-md-6">
+
+                                                        {{form.last_name.errors}}
+                                                        {{form.last_name}}
+
+                                                      </div>
+
+                                                    </div>
+
+
+
+                                                    <div class = "form-row">
+
+                                                    <div class = "form-group col-md-6">
+
+                                                      {{form.born.errors}}
+                                                      {{form.born}}
+
+                                                    </div>
+
+                                                    <div class = "form-group col-md-6">
+
+                                                      {{form.location.errors}}
+                                                      {{form.location}}
+
+                                                    </div>
+
+                                                    <div class = "form-group col-md-6">
+
+                                                      {{form.email_address.errors}}
+                                                      {{form.email_address}}
+
+                                                    </div>
+
+                                                  </div>
+
+    <button type="button" name="button">
+      Create patient
+    </button>
+    </form>
+
+{% endblock %}

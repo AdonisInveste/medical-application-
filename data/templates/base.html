@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block title %}
+      {% endblock %}
+
+    </title>
+
+    <!-- <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=TimesNewRoman:300,400,500,700|Material+Icons">
+    <link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I" crossorigin="anonymous"> -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+{% block head %}
+
+      {% endblock %}
+  </head>
+
+  <body>
+
+    <div class="">
+      <header>
+      </header>
+      <main>
+        {% block content %}
+        This is default content
+        {% endblock %}
+      </main>
+    </div>
+
+<footer>
+
+</footer>
+  </body>
+</html>

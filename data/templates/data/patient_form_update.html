@@ -1,0 +1,23 @@
+{% extends parent_template|default:"data/base_data.html"%}
+
+{% block title %}
+{{block.super}} - Update patient
+{% endblock %}
+
+
+{% block content %}
+
+<div class="">
+  <div class="">
+    <form class="" action="{{patient.get_update_url}}" method="post">
+      {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="button" name="button">
+      Update patient
+    </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

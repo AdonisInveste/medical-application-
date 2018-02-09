@@ -1,0 +1,112 @@
+{% extends parent_template|default:"data/base_data.html"%}
+
+
+{% block title %}
+{{block.super}} -
+{% endblock %}
+
+
+{% block content %}
+{% if patient_consult %}
+<section>
+<div class = "container" style="margin-top:4rem">
+
+  <div class = "row">
+                <div class="col-sm-6 ">
+                      <div class = "card" style = "font-family:Hiragino Mincho Pro;">
+                        <div class = "lead card-header">Consultation information</div>
+                          <div class="card-body">
+                          {% for patient in patient_consult %}
+
+                                <p class="card-text">{{patient.patient_identity.NIS}}</p>
+                                <p class="card-text">{{patient.patient_identity.first_name}}, {{patient.patient_identity.last_name}}</p>
+                                <p class="card-text">{{patient.patient_identity.location}} </p>
+                                <p class="card-text">{{patient.patient_identity.contact}}</p>
+                                <p class="card-text">{{patient.patient_identity.email_address}}</p>
+
+                          {% endfor %}
+                        </div>
+                            </div>
+                    </div>
+
+
+
+
+
+</div>
+
+
+                      <div class="row" style="margin-top:2rem">
+                        <div class="col-sm-8">
+                          <div class = "card" style = "font-family:Hiragino Mincho Pro;">
+                            <div class = "lead card-header">Symptom</div>
+                              <div class="card-body">
+                              {% for patient in patient_consult %}
+
+                                    <p class="card-text">{{patient.patient_condition.identity}}</p>
+                                    <p class="card-text">{{patient.patient_condition.description}} </p>
+
+                              {% endfor %}
+                            </div>
+                                </div>
+
+                        </div>
+
+
+
+                      </div>
+
+                      <div class="row" style="margin-top:2rem">
+                        <div class="col-sm-8">
+                          <div class = "card" style = "font-family:Hiragino Mincho Pro;">
+                            <div class = "lead card-header">Disease</div>
+                              <div class="card-body">
+                              {% for patient in patient_consult %}
+
+                                    <p class="card-text">{{patient.patient_disease.identity}}</p>
+                                    <p class="card-text">{{patient.patient_disease.description}} </p>
+
+                              {% endfor %}
+                            </div>
+                                </div>
+
+
+                        </div>
+
+                      </div>
+
+                      <div class="row" style="margin-top:2rem">
+                        
+                        <div class="col-sm-8">
+                          <div class = "card" style = "font-family:Hiragino Mincho Pro;">
+
+                            <div class = "lead card-header">Treatment</div>
+                              <div class="card-body">
+                              {% for patient in patient_consult %}
+
+                                    <p class="card-text">{{patient.patient_treatment.identity}}</p>
+                                    <p class="card-text">{{patient.patient_treatment.description}} </p>
+
+                              {% endfor %}
+                            </div>
+                                </div>
+
+
+                        </div>
+
+                      </div>
+
+
+</div>
+
+</section>
+
+{% else %}
+<p>This person is not related to any consultation</p>
+{% endif %}
+
+<section>
+  <ul>
+  </ul>
+</section>
+{% endblock %}
